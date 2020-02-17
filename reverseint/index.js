@@ -9,7 +9,7 @@
 //   reverseInt(-90) === -9
 
 function reverseInt(n) {
-    if (typeof n !== "number") {
+   /*  if (typeof n !== "number") {
         return
     }
 
@@ -21,7 +21,15 @@ function reverseInt(n) {
             .reverse().join(''))) * -1
     } 
 
-    return parseInt(nArray.reverse().join(''))
+    return parseInt(nArray.reverse().join('')) */
+
+    const reversedN = parseInt(n
+    .toString()
+    .split('')
+    .reverse()
+    .join(''))
+
+    return reversedN * Math.sign(n)
 }
 
 console.log(reverseInt(-500))
