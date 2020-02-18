@@ -12,6 +12,39 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+function fizzBuzz(n) {
+    let i = 1
+    while (i <= n) {
+        if(i % 2 === 0 && i % 5 === 0) {
+            console.log(`fizzbuzz`)
+        } else if (i % 5 === 0) {
+            console.log(`buzz`)
+        } else if (i % 3 === 0) {
+            console.log(`fizz`)
+        } else {
+            console.log(i)
+        }
+        i++
+    }
+
+
+   /*  for (let i = 1; i <= n; i++) {
+        if(i % 2 === 0 && i % 5 === 0) {
+            console.log(`fizzbuzz`)
+        } else if (i % 5 === 0) {
+            console.log(`buzz`)
+        } else if (i % 3 === 0) {
+            console.log(`fizz`)
+        } else {
+            console.log(i)
+        }
+    } */
+
+}
+
+// Linear Time Complexity O(n), we loop through n
+// Contant Space Complexity O(1), we define a variable
+
+fizzBuzz(10)
 
 module.exports = fizzBuzz;
