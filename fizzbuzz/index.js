@@ -43,7 +43,7 @@ function fizzBuzz(n) {
 }
 
 // Linear Time Complexity O(n), we loop through n
-// Contant Space Complexity O(1), we define a variable
+// Constant Space Complexity O(1), we define a variable
 
 fizzBuzz(10)
 
