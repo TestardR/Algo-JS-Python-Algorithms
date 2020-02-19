@@ -39,8 +39,12 @@ function anagrams(stringA, stringB) {
     const dictA = handleDict(stringA)
     const dictB = handleDict(stringB)
 
+    if (Object.keys(dictA).length !== Object.keys(dictB).length) {
+        return false
+    }
+
     for (let char in dictA) {
-        if(dictA[char] !== dictB[char]) {
+        if (dictA[char] !== dictB[char]) {
             return false
         }
     }
@@ -53,6 +57,6 @@ function anagrams(stringA, stringB) {
 
 
 
-console.log(anagrams('Hello', 'HellA'))
+console.log(anagrams('babel', 'babel'))
 
 module.exports = anagrams;
