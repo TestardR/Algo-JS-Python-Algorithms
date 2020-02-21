@@ -32,22 +32,27 @@
 }
  */
 
+// Quadratic Time Complexity, O(n^2) as we used two nested loops
+// Linear Space Complexity,  O(n) as we create n variables storing n values
+
 function steps(n, row = 0, stair = '') {
-if(n === row) {
-    return;
+    if (n === row) {
+        return;
+    }
+
+    if (n === stair.length) {
+        console.log(stair);
+        steps(n, row + 1); 
+        return;
+    }
+
+    const add = stair.length <= row ? '#' : ' ';
+
+    steps(n, row, stair + add);
 }
 
-if(n === stair.length) {
-    console.log(stair);
-    steps(n, row + 1);
-    return;
-}
-
-const add = stair.length <= row ? '#' : ' ';
-
-steps(n, row, stair + add);
-}
-
+// Constant Time Complexity
+// Linear Space Complexity, O(n) as we create n variable storing n values 
 
 console.log(steps(4))
 module.exports = steps;
