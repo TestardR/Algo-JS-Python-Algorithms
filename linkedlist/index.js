@@ -64,33 +64,113 @@ class LinkedList {
         }
 
         if (!this.head.next) {
-            this.head = null;
-            return;
+            return this.head = null;
         }
 
-        let previous = this.head;
         let node = this.head.next;
+        let previous = this.head;
 
         while (node.next) {
-
-            previous = node;
-
-            node = node.next;
-
+            previous = node
+            node = node.next
         }
 
         previous.next = null;
     }
 
+    insertLast(data) {
+
+        let node = this.head
+
+        if (!node) {
+            return node = new Node(data, null);
+        }
+
+        while (node) {
+            if (!node.next) {
+                return node.next = new Node(data, null)
+            }
+            node = node.next;
+        }
+    }
+
+    getAt(n) {
+        let counter = 0;
+
+        let node = this.head;
+
+        while (node) {
+            if (counter === n) {
+                return node
+            }
+            counter++
+            node = node.next
+
+        }
+
+        return null
+
+    }
+
+    removeAt(n) {
+        if (!this.head) {
+            return null
+        }
+
+        if (index === 0) { 
+            this.head = this.head.next;
+            return;
+        }
+
+        const previous = this.getAt(n - 1);
+        // out of bounce
+        if(!previous || !previous.next) {
+            return;
+        }
+        // jump over
+        previous.next = previous.next.next
+
+    }
+
+    insertAt(data, n) {
+        if (!this.head) {
+            this.head = new Node(data)
+        }
+
+        if (index === 0) { 
+            this.head = new Node(data, this.head);
+            return;
+        }
+
+        const previous = this.getAt(n - 1);
+        // out of bounce
+        const node = new Node(data, previous.next)
+
+        previous.next = node
+    }
+
+    forEach(fn) {
+        let node = this.head;
+        let counter = 0;
+
+        while(node) {
+            fn(node, counter)
+            counter++
+            node = node.next
+        }
+
+        return;
+    }
+
+
+
 
 }
 
 const list = new LinkedList();
-list.insertFirst('a');
-list.insertFirst('b');
-list.removeLast();
-
-console.log(list.getLast());
-console.log(list.size());
+list.insertFirst('c');
+list.insertFirst('d');
+list.insertLast('e')
+console.log(list.getAt(2));
 
 module.exports = { Node, LinkedList };
